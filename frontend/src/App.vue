@@ -2,9 +2,9 @@
 <template>
 
     <!-- <nav-bar /> -->
-    <!-- <NavBar></NavBar> -->
+    <!-- <Navbar></Navbar> -->
     <!-- <nav-bar></nav-bar> -->
-    <NavBar />
+    <Navbar />
 
     <!-- 
     Reactivity örneği 
@@ -33,7 +33,7 @@
 </template>
 
 <script>
-import NavBar from './components/Navbar.vue';
+import NavBar from '@/components/Navbar.vue';
 
 // OPTIONS API
 // Vue'de Options API, bileşenin yapılandırmasını bir nesne olarak tanımlar.
