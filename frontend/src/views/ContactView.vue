@@ -1,5 +1,5 @@
 <template>
-    <section>
+    <section class="full-section-height">
         <div class="container">
             <SectionHeader title="Contact Us" text="Contact us text" />
         </div>

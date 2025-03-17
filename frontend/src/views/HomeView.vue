@@ -1,7 +1,9 @@
 <template>
-    <div>
-        HomeView Page
-    </div>
+    <section>
+        <div class="container">
+            HomeView Page
+        </div>
+    </section>
 
     <!-- <img :src="imageSrc" :alt="imageAlt"> -->
     <!-- <img v-bind:src="imageSrc" v-bind:alt="imageAlt"> -->

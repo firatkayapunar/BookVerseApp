@@ -61,7 +61,7 @@
                 badge
                 Bootstrap’in küçük etiket (badge) tasarımını uygular.
                 -->
-                <p style="background-color: #063547;" class="py-1 px-2 text-white badge mb-0">
+                <p style="background-color: var(--primary-color);" class="py-1 px-2 text-white badge mb-0">
                     {{ book.uploadDate }}
                 </p>
             </div>

@@ -29,11 +29,12 @@
     <!-- <RouterView />'in görevi, mevcut route'a (URL'ye) bağlı olarak ilgili bileşeni ekrana yerleştirmektir. -->
     <!-- Global olarak vue uygulamasına import edilmiştir. Ondan dolayı burada import etmedik. Global olarak erişebiliyoruz. -->
     <RouterView />
-
+    <TheFooter />
 </template>
 
 <script>
-import NavBar from '@/components/Navbar.vue';
+import Navbar from '@/components/Navbar.vue';
+import TheFooter from '@/components/TheFooter.vue';
 
 // OPTIONS API
 // Vue'de Options API, bileşenin yapılandırmasını bir nesne olarak tanımlar.
@@ -52,22 +53,12 @@ export default {
         }
     },
     components: {
-        Navbar: NavBar
+        Navbar: Navbar,
+        TheFooter: TheFooter
     }
 }
 </script>
 
 <style>
-/* CSS içerisinde bir başka CSS dosyasını içe aktarmak için @import kullanılır. */
-@import 'bootstrap/dist/css/bootstrap.min.css';
-@import url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap');
-
-html,
-body {
-    font-family: 'Mulish', sans-serif;
-}
-
-a {
-    text-decoration: none;
-}
+@import '../src/assets/styles.css';
 </style>

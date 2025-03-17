@@ -13,8 +13,7 @@
             İçinde basit JavaScript ifadeleri kullanılabilir, örneğin: {{ brandName.toUpperCase() }}.
             Ancak, fonksiyon çağırma, if-else gibi koşullar veya döngüler desteklenmez.
             
-            Not: HTML  attribute'ları (örneğin, class, src, href) içinde Mustache kullanılamaz. Bunun yerine v-bind
-            direktifi (:href="link") kullanılmalıdır. 
+            Not: HTML  attribute'ları (örneğin, class, src, href) içinde Mustache kullanılamaz. Bunun yerine v-bind direktifi (:href="link") kullanılmalıdır. 
             -->
             <RouterLink class="navbar-brand" v-bind:to="{ name: 'home' }">{{ brandName }}</RouterLink>
             <ul class="navbar-nav">
@@ -54,7 +53,7 @@ export default {
 
 <style scoped>
 .custom-nav {
-    background-color: #063547;
+    background-color: var(--primary-color);
     padding: 15px 0;
 }
 
@@ -73,11 +72,11 @@ export default {
 }
 
 .nav-link:hover {
-    color: #44b89d;
+    color: var(--secondary-color);
 }
 
 /* index.js içerisinde router nesnemizin linkActiveClass property değerine active-link verdik. */
 .active-link {
-    color: #44b89d !important;
+    color: var(--secondary-color) !important;
 }
 </style>

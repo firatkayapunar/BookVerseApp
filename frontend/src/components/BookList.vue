@@ -1,5 +1,7 @@
 <template>
-    <!-- row class sayesinde divlerimiz yatay düzlemde sıralanacak. Çünkü row class içerisinde display: flex değerini barındırıyor. -->
+    <!-- 
+     row class sayesinde divlerimiz yatay düzlemde sıralanacak. Çünkü row class içerisinde display: flex değerini barındırıyor. 
+    -->
     <div class="row">
         <div class="col-sm-6 col-md-4 col-xl-3 mb-5" v-for="book in books" :key="book.id">
             <!-- 

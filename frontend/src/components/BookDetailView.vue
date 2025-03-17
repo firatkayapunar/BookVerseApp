@@ -4,6 +4,14 @@
 
             <SectionHeader :title="book.name" :text="book.author" />
 
+            <!-- 
+            Burada ne oluyor?
+            Vue içinde :icon prop’u, FontAwesomeIcon bileşenine hangi ikonu göstereceğini bildirir.
+            Bileşen bu değeri alır ve library.add(...) ile eklenen ikonları kontrol eder. (main.js)
+            -->
+            <font-awesome-icon :icon="['fas', 'arrow-left']" size="2xl" class="mb-2" style="cursor:pointer"
+                v-on:click="goToBackBooks" />
+
             <div class="row mb-4">
                 <!--
                 col-lg-6;
@@ -21,11 +29,11 @@
                         <div class="row border-bottom pb-2">
                             <div class="col-lg-6">
                                 <strong>
-                                    {{ book.page }}
+                                    Page
                                 </strong>
                             </div>
                             <div class="col-lg-6">
-                                278
+                                {{ book.page }}
                             </div>
                         </div>
                         <div class="row border-bottom pb-2">
@@ -75,8 +83,8 @@
                                         John Doe
                                     </p>
                                     <div class="d-flex align-items-center">
-                                        <p>Upvote</p>
-                                        <p class="ps-2">
+                                        <font-awesome-icon :icon="['far', 'thumbs-up']" />
+                                        <p class="ps-2 mb-0">
                                             <strong>
                                                 8
                                             </strong>
@@ -88,7 +96,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </section>
 </template>
@@ -101,7 +108,15 @@ export default {
     name: "BookDetailView",
     data() {
         return {
-            book: null
+            book: null,
+            currentPage:1
+        }
+    },
+    methods: {
+        goToBackBooks() {
+            // $router.push() Vue Router'da "books" adlı route'a yönlendirir. 
+            // "index.js" içinde tanımlanan routes dizisinde "name" değeri "books" olan route'u bulur ve ilgili bileşeni yükler.
+            this.$router.push({ name: "books" });
         }
     },
     components: {
@@ -109,8 +124,7 @@ export default {
     },
     created() {
         // $route Vue Router tarafından sağlanan dinamik route parametresidir. Vue Router, sayfanın URL’sine bağlı olarak bu parametreleri Vue bileşenine aktarır.
-        // Url üzerinden String şeklinde gelen id değerini alacağız.
-
+        // Url üzerinden String şeklinde gelen id değerini alacağız. Ardından parseInt metodu ile bir int değerine çevireceğiz.
         const bookId = this.$route.params.id;
         this.book = books.find(book => book.id === parseInt(bookId));
     }
