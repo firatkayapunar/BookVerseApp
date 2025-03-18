@@ -1,45 +1,13 @@
 import Book from "../models/Book.js";
 
-/* 
-======================================================
-Express ile HTTP İstek İşleme Adımları ve Açıklamaları
-======================================================
-
-1. İstek (Request - req) Nesnesi Oluşturma
-Express, bir HTTP isteği aldığında, bu istek için "req" nesnesini oluşturur.
-Bu nesne içerisinde aşağıdaki bilgiler bulunur:
-  - URL: İsteğin gönderildiği adres. Örnek: "/books", "/users"
-  - HTTP Metodu: GET, POST, PUT, DELETE gibi istek türleri.
-  - Headers: İstek başlıkları (örn. Content-Type, Authorization vb.).
-  - Body: İsteğin içeriği (veriler, form bilgileri, JSON vs.).
-  - Query String: URL’deki parametreler (örn. ?page=2&limit=10).
-  - Cookies: İstemciden gelen çerez bilgileri.
-
-2. Yanıt (Response - res) Nesnesi Oluşturma
-İstek alındığında, Express yanıt verebilmek için bir "res" nesnesini de oluşturur.
-Bu nesne, sunucunun istemciye geri gönderdiği veriyi yapılandırmak için kullanılır.
-Örneğin, res nesnesi ile:
-  - JSON veya HTML formatında veri gönderebiliriz (res.json(), res.send()).
-  - Yanıt başlıklarını (headers) ayarlayabiliriz.
-  - Yanıtın durum kodunu (status code) belirleyebiliriz.
-Önemli: Her iki nesne (req ve res) HTTP isteği geldiğinde birlikte oluşturulur.
-
-3. Middleware'ler ve Route Handler'lar
-Express, gelen isteği işlemek için middleware'ler (ara katmanlar) ve route handler'lar (rota işleyiciler) kullanır.
-Middleware'ler:
-  - İstek üzerinde önceden belirlenmiş işlemleri yapar (örneğin, loglama, kimlik doğrulama).
-  - İstek verilerini okuyup, düzenleyebilir veya ek bilgiler ekleyebilir.
-  - Bazen doğrudan yanıt döndürebilir, böylece sonraki işleyicilere geçilmez.
-Route Handler'lar:
-Route Handler'lar, sunucuya gelen isteği alan ve işleyip yanıt gönderen basit fonksiyonlardır. Örneğin, /books adresine gelen bir GET isteği için tanımladığınız route handler, şu adımları izler:
-  - İstek geldiğinde otomatik olarak çalışır.
-  - Gelen veriyi (req) kullanır ve gerekli işlemleri yapar.
-  - İşlem tamamlandığında, sonucu yanıt (res) aracılığıyla gönderir.
-
-4. Yanıtın Gönderilmesi:
-Route handler veya middleware içinde işlemler tamamlandığında, "res.send()", "res.json()", "res.end()" gibi metodlar kullanılarak yanıt gerçekten istemciye gönderilir. Eğer bu metodlar çağrılmazsa, istemci yanıtı almaz ve istek sonsuza kadar bekler.
-*/
-const getAllBooks = (req, res) => {};
+const getAllBooks = async (req, res) => {
+  try {
+    const books = await Book.find();
+    res.status(200).json(books);
+  } catch (error) {
+      return res.status(500).json({ error: "Internal Server error" });
+  }
+};
 
 const createBook = async (req, res) => {
   try {

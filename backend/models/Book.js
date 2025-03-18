@@ -5,10 +5,11 @@ import mongoose from "mongoose";
 ---------------------------
 MongoDB ve Mongoose Nedir?
 ---------------------------
+
 1. MongoDB, collection (koleksiyon) bazlı bir veritabanıdır.
   - Her koleksiyonun içinde document (belgeler) bulunur ve her belge, tek bir veriyi (örneğin bir kitabı) temsil eder.
 
-2. Mongoose, MongoDB ile çalışma sürecini daha kolay ve düzenli hale getiren bir ODM (Object Data Modeling) kütüphanesidir.
+2. Mongoose, Node.js ortamında MongoDB veritabanı ile çalışmayı kolaylaştıran bir ODM (Object Data Modeling) kütüphanesidir.
   - Bir nevi MongoDB ile MSSQL arasındaki farkı azaltır, çünkü şema tabanlı bir yapı sağlar.
 
 3. Ancak, Mongoose kullanmadan da doğrudan MongoDB ile çalışmak mümkündür.
@@ -31,8 +32,9 @@ En büyük fark:
     - MongoDB: Veriyi tek bir dokümanda saklar, bu yüzden daha hızlı okuma/yazma yapabilir.
 
 ----------------------
-Örnek MongoDB Yapısı:
+Örnek MongoDB Yapısı
 ----------------------
+
 Bir "books" koleksiyonundaki belgeler şu şekilde olabilir:
 
 [
@@ -76,7 +78,7 @@ MongoDB Veriyi Nasıl Saklar?
    - MongoDB, gönderilen bu JSON verisini alır.
 
 3. MongoDB'nin Saklama İşlemi (BSON Dönüşümü):
-   - MongoDB, veriyi alır almaz, JSON verisini daha verimli olan **BSON** (Binary JSON) formatına dönüştürür.
+   - MongoDB, veriyi alır almaz, JSON verisini daha verimli olan BSON (Binary JSON) formatına dönüştürür.
    - BSON, JSON'a çok benzer fakat bilgisayarlar tarafından daha hızlı işlenebilen ikili (binary) bir formattır.
    - Ayrıca, MongoDB veriye bazı ek bilgileri (örneğin, otomatik oluşturulan _id, tarih bilgileri) ekler.
    
@@ -93,15 +95,15 @@ MongoDB Veriyi Nasıl Saklar?
    
 4. Veri Alırken (Geri Okuma İşlemi):
    - MongoDB'den veri çekildiğinde, veriler aslında BSON formatındadır.
-   - Ancak, MongoDB (ve Mongoose) bu veriyi uygulamanızın anlayabileceği JSON-benzeri bir yapıya çevirir.
-   - Böylece, uygulamanız JSON ile rahatça çalışır.
+   - Ancak, MongoDB (ve Mongoose) bu veriyi uygulamamızın anlayabileceği JSON yapıya çevirir.
+   - Böylece, uygulamamız JSON ile rahatça çalışır.
 
 Özetle:
-- **Gönderirken: ** Uygulamanız JSON formatında veri oluşturur ve MongoDB'ye gönderir.
-- **Saklanırken: ** MongoDB bu JSON verisini otomatik olarak daha hızlı ve verimli işlenebilen BSON formatına dönüştürür.
-- **Alırken:     ** MongoDB veriyi BSON formatından JSON-benzeri bir formata çevirip uygulamanıza sunar.
+- Gönderirken: Uygulamamız JSON formatında veri oluşturur ve MongoDB'ye gönderir.
+- Saklanırken: MongoDB bu JSON verisini otomatik olarak daha hızlı ve verimli işlenebilen BSON formatına dönüştürür.
+- Alırken: MongoDB veriyi BSON formatından JSON formata çevirip uygulamamıza sunar.
 
-Bu süreç, verilerin hem veritabanında hızlı saklanmasını hem de uygulamanız tarafından kolayca kullanılmasını sağlar.
+Bu süreç, verilerin hem veritabanında hızlı saklanmasını hem de uygulamamız tarafından kolayca kullanılmasını sağlar.
 */
 
 /*
@@ -170,22 +172,21 @@ const bookSchema = new mongoose.Schema(
 );
 
 /*
----------------------------------
- mongoose.model() Fonksiyonunun Mantığı
----------------------------------
+---------------------------------------
+mongoose.model() Fonksiyonunun Mantığı
+---------------------------------------
+
 Mongoose'da bir model, belirli bir collection içindeki documentleri temsil eder.
 Bir collection, MongoDB'de saklanan documentlerden oluşur demiştik.
 Mongoose ile MongoDB'de bir collection oluşturmak ve yönetmek için model tanımlarız.
 
 Genel Kullanım:
-  const ModelAdı = mongoose.model("ModelAdı", schemaAdı);
+- const ModelAdı = mongoose.model("ModelAdı", schemaAdı);
 
 Bu fonksiyon, belirtilen schema ile MongoDB'deki collection arasında bağlantı kurar.
 Model, MongoDB'de veri **ekleme, güncelleme, silme ve sorgulama** işlemlerini yapmamızı sağlar.
 
----------------------------------
 Parametreler:
----------------------------------
 1. Parametre ("ModelAdı") → Modelin Adı
   - Model adı tekil (singular) olarak yazılır.
   - Mongoose, bu ismi küçük harfe çevirir ve çoğul (plural) hale getirir.
@@ -197,5 +198,4 @@ Parametreler:
 */
 const Book = mongoose.model("Book", bookSchema);
 
-// Modelimizi dışa aktarıyoruz, böylece bu modeli diğer dosyalarda kullanabiliriz.
 export default Book;
