@@ -3,14 +3,14 @@
      row class sayesinde divlerimiz yatay düzlemde sıralanacak. Çünkü row class içerisinde display: flex değerini barındırıyor. 
     -->
     <div class="row">
-        <div class="col-sm-6 col-md-4 col-xl-3 mb-5" v-for="book in books" :key="book.id">
+        <div class="col-sm-6 col-md-4 col-xl-3 mb-5" v-for="book in books" v-bind:key="book.id">
             <!-- 
             Vue mantığında One Way Data Flow şeklinde bir veri akışı var. 
             Parent => Child şeklinde veriler akıyor. 
 
             Props'lar readonly'dir. Değiştirilemez (immutable). BookItem tarafında buradan gönderilen veriyi yani prop değerini değiştirmeye kalktığımız an hata alırız.
             -->
-            <RouterLink :to="'/books/' + book.id">
+            <RouterLink :to="'/books/' + book._id">
                 <BookItem :book="book" />
                 <!-- 
                 Ayrıca aşağıdaki gibi aynı isim kullandığımız için Vue anlayabilir. Ama bu kadar esneklik proje büyüdükçe kafa karıştırabilir.
@@ -26,14 +26,14 @@ import BookItem from '@/components/BookItem.vue';
 
 export default {
     name: "BookList",
-    components: {
-        BookItem
-    },
     props: {
         books: {
             type: Array,
             default: () => ([])
         }
+    },
+    components: {
+        BookItem: BookItem
     }
 }
 </script>

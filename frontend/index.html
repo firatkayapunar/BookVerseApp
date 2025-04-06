@@ -1,14 +1,24 @@
-<!-- Vite geliştirme sunucusu (vite dev) çalıştırıldığında, otomatik olarak başlangıç noktası olarak index.html dosyasını kabul eder. -->
+<!-- 
+Vite geliştirme sunucusu (vite dev) çalıştırıldığında, proje kök dizinindeki bu index.html dosyasını
+otomatik olarak entry point (giriş noktası) olarak kabul eder.
+-->
 <!DOCTYPE html>
-<html lang="">
+<html lang="tr">
   <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <title>BookVerse App</title>
   </head>
   <body>
-    <!-- <div id="app"></div> → Vue.js uygulamasının bağlanacağı HTML elementidir. Vue bileşenleri burada render edilecektir. -->
+    <!-- 
+    Vue.js uygulamasının bağlanacağı root element'tir.
+    Tüm component'ler bu <div> içerisine render edilir.
+    -->
     <div id="app"></div>
-     <!-- main.js dosyasını modül olarak yükler. Vue uygulamasını başlatan koddur. -->
+
+    <!-- 
+    Uygulamanın entry point'i olan main.js dosyasını module olarak yükler.
+    Bu dosya, Vue uygulamasını başlatır ve root element'e mount eder.
+    -->
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>

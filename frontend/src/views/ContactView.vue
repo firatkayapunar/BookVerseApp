@@ -9,11 +9,11 @@
 <script>
 import SectionHeader from '@/components/SectionHeader.vue';
 export default {
-    name: "ContactUs",
+    name: "ContactView",
     components: {
         SectionHeader
     }
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style scoped></style>

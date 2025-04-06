@@ -1,33 +1,39 @@
 import { createRouter, createWebHistory } from "vue-router";
 
-import HomeView from "@/views/HomeView.vue";
 import BooksView from "@/views/BooksView.vue";
 import BookDetailView from "@/components/BookDetailView.vue";
 import ContactView from "@/views/ContactView.vue";
+import HomeView from "@/views/HomeView.vue";
 import LoginView from "@/views/LoginView.vue";
 import RegisterView from "@/views/RegisterView.vue";
 
-// SPA (Single Page Application)
-// Sanki tek bir sayfa üzerinde işlem yapıyormuşuz gibi bir yapı bize sunar.
+/*
+<router-view> nedir, ne işe yarar?
+- <router-view>, Vue Router’ın aktif route’a göre hangi component’in gösterileceğine karar verdiği ve Vue’nun bu component’i ekranda render etmek için kullandığı özel bir Vue component’idir.
+- Aktif route’a karşılık gelen component yalnızca bu alanın içinde render edilir.
+- Sayfa yapısının geri kalanı sabit kalır, sadece bu bölge dinamik olarak güncellenir.
 
-// Neden RouterView SPA İçin Yeterli?
-// Sayfa yenilenmeden bileşenleri değiştirir.
-// Tarayıcı adres çubuğundan (/books, /about gibi) yönlendirme yapıldığında Vue Router bunu algılar ve ilgili bileşeni render eder.
-// Gerçek sayfa yüklemesi (full refresh) olmaz, Vue sadece RouterView içeriğini değiştirir.
+<router-link> neden kullanılır?
+- <router-link>, Vue Router ile entegre çalışan bir yönlendirme (navigation) component’idir.
+- Kullanıcıların sayfa geçişlerini sayfa reload olmadan gerçekleştirmesini sağlar.
+- <a href="..."> yerine kullanılır çünkü:
+  - SPA davranışı korunur.
+  - Sayfa yeniden yüklenmez.
+  - Aktif route’a göre özel CSS class (örn. "active-link") otomatik eklenebilir.
 
-// RouterView, şu şekilde çalışır:
-// Vue Router, URL’ye karşılık gelen bileşeni belirler.
-// Vue’ya bu bileşeni yüklemesini söyler.
-// Vue, RouterView içinde bu bileşeni oluşturur ve DOM’a ekler.
+Peki kullanıcı elle URL yazarsa ne olur?
+- Aynı mantık korunur. Örneğin kullanıcı tarayıcıya "/books" yazarsa:
+  - Tarayıcı URL'yi değiştirir.
+  - Vue Router bu değişikliği algılar.
+  - "/books" path’ine karşılık gelen component (örneğin BooksView) belirlenir.
+  - Vue, bu component’i <router-view> içine render eder.
+  - Sayfa reload olmadan içerik güncellenmiş olur.
 
-//  O Zaman RouterLink Ne İşe Yarıyor?
-//  Kullanıcıların sayfa değiştirmesini kolaylaştırır.
-//  Sayfalar arası yönlendirmeleri href yerine Vue Router ile yapar.
-//  Klasik <a href=""> yerine kullanılır, çünkü sayfa yenilenmez!
-
-// Özet
-// Eğer kullanıcı elle adres çubuğundan /books yazarsa bile RouterView ile bileşen değişir, SPA çalışır.
-// Ama bir buton veya link olmazsa, kullanıcı başka bir sayfaya gitmek için her seferinde adres çubuğunu değiştirmek zorunda kalır.
+SPA (Single Page Application) nasıl işler?
+- Sayfa yalnızca ilk kez yüklendiğinde sunucudan gelir.
+- Kullanıcı farklı sayfalara geçtikçe, Vue Router devreye girer ve yalnızca ilgili component’i <router-view> içine render eder.
+- Sayfa yeniden yüklenmez, bu da hızlı ve akıcı bir deneyim sağlar.
+*/
 
 const routes = [
   {

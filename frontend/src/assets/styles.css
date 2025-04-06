@@ -1,24 +1,36 @@
-/* Assets (Varlıklar) */
+/*
+  Assets (Varlıklar)
+*/
 
-/* CSS içerisinde bir başka CSS dosyasını içe aktarmak için @import kullanılır. */
+/* 
+Bootstrap CSS dosyasını projeye dahil eder.
+Bu, temel grid sistemi, butonlar ve diğer UI bileşenlerini kullanmamıza olanak tanır.
+*/
 @import "bootstrap/dist/css/bootstrap.min.css";
+
+/* Google Fonts üzerinden Mulish yazı tipini projeye dahil eder. */
 @import url("https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap");
 
+/*
+  Root Variables (Kök Değişkenler)
+*/
+
 /* 
-Root Variables
-:root, tüm HTML belgesinin kök (root) seviyesini temsil eder ve <html> etiketiyle aynı seviyededir.
-Buraya tanımlanan değişkenler tüm sayfa boyunca kullanılabilir.
+:root, HTML belgesinin en üst seviyesini temsil eder ve <html> etiketiyle aynı hizadadır.
+
+SPA (Single Page Application) yapılarında tüm uygulama tek bir HTML dosyasına (örneğin index.html) yüklendiği için, :root içinde tanımlanan değişkenler uygulamanın tamamında kullanılabilir.
+
+Değişkenlere var(--degisken-adi) şeklinde erişilir.
 */
 :root {
-/* 
-  --primary-color, bir CSS değişkenidir.
-  Değişkenler, var(--değişken-adı) ile çağrılarak kullanılabilir. 
-*/
   --primary-color: #063547;
   --secondary-color: #44b89d;
 }
 
-/* General Settings */
+/* 
+  General Settings
+*/
+
 html,
 body {
   font-family: "Mulish", sans-serif;
@@ -28,20 +40,23 @@ a {
   text-decoration: none;
 }
 
-/* Custom Settings */
-.full-section-height {
 /* 
-  Bu class RegisterView.vue ve LoginView.vue içerisinde kullanılıyor.
+  Custom Settings 
 */
 
+/* Bu class RegisterView.vue ve LoginView.vue içerisinde kullanılıyor. */
+.full-section-height {
   /* 
-  CSS bir programlama dili olmadığı için fonksiyonları kendi içinde çalıştıramaz!
-  Tarayıcı, CSS’i işlerken bu fonksiyonları kendi motorları ile hesaplar.
-  JavaScript'te ise bir fonksiyon çalıştırıldığında, hesaplamalar tarayıcının JavaScript motoru tarafından yapılır, CSS’de olduğu gibi tarayıcının render motoru tarafından değil.
-  100vh	Görünür ekran yüksekliğinin tamamı (tam ekran yüksekliği) anlamına geliyor.
+    CSS, bir programlama dili değildir; dolayısıyla JavaScript gibi doğrudan fonksiyon çalıştırmaz. Ancak tarayıcı, bazı hesaplamaları render motoru üzerinden yapabilir.
+
+    Örneğin: 
+    - 100vh, görünür ekran yüksekliğinin %100’ünü ifade eder.
+    - calc(100vh - 146px), ekran yüksekliğinden 146 piksel çıkararak dinamik bir yükseklik oluşturur.
   */
   min-height: calc(100vh - 146px);
   display: flex;
-  /* Child öğeleri dikey eksende ortalar (yani min-height kadar yüksekliğin tam ortasına yerleştirir). */
+  /* 
+    Child öğeleri dikey eksende ortalar. (Yani min-height kadar yüksekliğin tam ortasına yerleştirir.) 
+  */
   align-items: center;
 }

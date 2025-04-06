@@ -9,7 +9,7 @@
         card-img-top
         Kartın üstüne resim ekler. 
         -->
-        <img src="../../template/images/b1.jpg" class="card-img-top">
+        <img src="../../src/assets/images/b1.jpg" class="card-img-top">
         <!-- 
         card-body
         Kart içeriğini kapsayan div’dir.
@@ -32,9 +32,9 @@
             </div>
             <!-- 
             fw-semibold
-            Yazı kalınlığını (font-weight) yarı kalın (semibold) yapar.
+            Yazının kalınlığını "semi-bold" yani orta kalınlıkta yapar (font-weight: 600).
             -->
-            <h5 class="card-title mt-3 fw-semibold"> {{ book.name }}</h5>
+            <h5 class="card-title mt-3 fw-semibold"> {{ book.title }}</h5>
             <p class="card-text">
                 {{ truncatedText }}
             </p>
@@ -48,8 +48,7 @@
             İçindeki öğeleri iki uca iter.
 
             align-items-center
-            Eğer farklı yüksekliklere sahip öğeler varsa, onları dikey olarak da aynı hizada tutmamız gerekir.
-            İşte burada align-items-center devreye giriyor. Eğer içinde bulunan öğelerin biri büyük, biri küçükse, align-items-center kullanmazsan, biri yukarıda, diğeri aşağıda durabilir. 
+            Öğeleri dikeyde ortalamak için `align-items-center` kullanılır.
             -->
             <div class="d-flex justify-content-between align-items-center">
                 <!-- 

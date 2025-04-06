@@ -8,11 +8,11 @@
                         <!-- 
                         Two-Way Data Binding sağlamak için Vue'nun sunduğu iki farklı yöntemi kullanabiliriz.
 
-                        Geleneksel yöntem:
+                        Geleneksel Yöntem
                         <input type="text" class="form-control" id="username" name="username" :value="formData.username" v-on:input="updateUserName($event)" required> 
                         Bu yöntemde, `:value` ile input'un değerini bağlıyoruz ve her `input` event'inde `updateUserName` metodunu çağırarak `formData.username` değerini manuel olarak güncelliyoruz.
 
-                        Vue’nun sunduğu `v-model` direktifi:
+                        Vue’nun Sunduğu `v-model` Directive
                         <input type="text" class="form-control" id="username" name="username" v-model="formData.username" required>
                         `v-model` kullanarak Two-Way Data Binding işlemini daha basit hale getiriyoruz.
                         Bu sayede input alanına girilen değer otomatik olarak `formData.username` değişkenine aktarılıyor.
@@ -25,13 +25,12 @@
                         işlemi gerçekleşir.
                         Ancak, `.lazy` modifier kullanıldığında, veri sadece input alanından `focus çıktığında`
                         (`change` event'i tetiklendiğinde) güncellenir.
-
                         Performansı artırır, gereksiz render işlemlerini önler.
                         Büyük formlarda gereksiz hesaplamaları engelleyerek kullanıcı deneyimini iyileştirir. 
                         -->
 
                         <!-- 
-                        `.trim` modifier, kullanıcının giriş yaptığı metnin başındaki ve sonundaki gereksiz boşlukları otomatik olarak siler.
+                        .trim modifier, kullanıcının giriş yaptığı metnin başındaki ve sonundaki gereksiz boşlukları otomatik olarak siler.
                         -->
                         <input type="text" class="form-control" id="username" name="username"
                             v-model.lazy.trim="formData.username" required>
@@ -60,7 +59,7 @@
                         <div class="form-check">
                           
                             ***
-                            Vue burada `change` event'ini dinleyerek v-model ile değeri güncelliyor.
+                            Vue burada change event'ini dinleyerek v-model ile değeri güncelliyor.
                             Radio butonlarda name özelliği aynı olduğunda, aynı gruba ait olduğu anlamına gelir. Bu sayede birden fazla radio butondan sadece biri seçilebilir.
                             ***
                             
@@ -92,10 +91,10 @@
                         <h5>Which Programming Language(s) you know?</h5>
 
                         *** 
-                        Vue'da `v-model` bir checkbox'a bağlı olduğunda, eğer değer bir dizi (`Array`) ise,
+                        Vue'da v-model bir checkbox'a bağlı olduğunda, eğer değer bir dizi (`Array`) ise,
                         seçili checkbox'ların değerleri otomatik olarak bu diziye eklenir veya çıkarılır.
 
-                        Kullanıcı bir checkbox işaretlediğinde, değeri `formData.languages` dizisine eklenir.
+                        Kullanıcı bir checkbox işaretlediğinde, değeri formData.languages dizisine eklenir.
                         Checkbox işaretini kaldırdığında, o değer diziden çıkarılır.
                         *** 
 
@@ -168,8 +167,8 @@ export default {
 
             event.preventDefault();
 
-            // Alternatif Yöntem: Vue'nun `.prevent` Modifier'ı
-            // `@submit.prevent="submitForm" (v-on:submit.prevent)` ifadesi, Vue'nun `.prevent` modifier'ını kullanarak `event.preventDefault()` çağrısını otomatik olarak yapar.
+            // Alternatif Yöntem: Vue'nun .prevent Modifier'ı
+            // @submit.prevent="submitForm" (v-on:submit.prevent) ifadesi, Vue'nun .prevent modifier'ını kullanarak event.preventDefault() çağrısını otomatik olarak yapar.
             // Böylece, formun varsayılan yenileme davranışını engellemek için ekstra kod yazmaya gerek kalmaz.
         }
     }
