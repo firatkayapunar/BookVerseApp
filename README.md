@@ -17,6 +17,9 @@ Bu proje, modern bir **Vue 3 tabanlı kullanıcı arayüzü** ve güçlü bir **
 
 ## 📌 **Proje Ekran Görüntüleri**
 
+### Anasayfa
+![99](https://github.com/user-attachments/assets/9e7a59ba-6cb1-4492-9590-c3b8494cb925)
+
 ### Kitaplar
 ![1](https://github.com/user-attachments/assets/b637fad2-6a69-453a-a150-8c6bba7220ed)
 
@@ -26,26 +29,57 @@ Bu proje, modern bir **Vue 3 tabanlı kullanıcı arayüzü** ve güçlü bir **
 
 <pre>
 📦 BookVerseApp
-│── 📂 src/
-│   │── 📂 components/           
-│   │   ├── 🎨 BookDetailView.vue  # Kitap detay sayfası bileşeni
-│   │   ├── 🎨 BookItem.vue        # Tek bir kitap öğesini temsil eden bileşen
-│   │   ├── 🎨 BookList.vue        # Kitap listesini gösteren bileşen
-│   │   ├── 🎨 Navbar.vue          # Üst navigasyon çubuğu
-│   │   ├── 🎨 Pagination.vue      # Sayfalandırma bileşeni
-│   │   ├── 🎨 SectionHeader.vue   # Bölüm başlıklarını gösteren bileşen
-│   │
-│   │── 📂 router/               
-│   │   ├── 🛠 index.js            # Yönlendirme yapılandırma dosyası
-│   │
-│   │── 📂 views/               
-│   │   ├── 🎨 BooksView.vue       # Kitapları listeleyen ana sayfa
-│   │   ├── 🎨 ContactView.vue     # İletişim sayfası
-│   │   ├── 🎨 HomeView.vue        # Ana giriş sayfası
-│   │   ├── 🎨 LoginView.vue       # Kullanıcı giriş sayfası
-│   │   ├── 🎨 RegisterView.vue    # Kullanıcı kayıt sayfası
-│   │
-│   │── 🎨 App.vue               # Ana uygulama bileşeni
-│   │── 🛠 db.js                 # Yerel veri kaynağı veya veritabanı yapılandırması
-│   │── 🛠 main.js               # Vue uygulamasının giriş noktası
+│
+├── 📂 backend/                       
+│   ├── 📂 config/
+│   │   └── 🛠 db.js                   
+│   ├── 📂 controllers/
+│   │   ├── 🧠 authController.js      
+│   │   └── 🧠 bookController.js      
+│   ├── 📂 models/
+│   │   ├── 🧬 Book.js               
+│   │   └── 🧬 User.js               
+│   ├── 📂 routes/
+│   │   ├── 🚏 authRoute.js           
+│   │   └── 🚏 bookRoute.js           
+│   ├── 📂 utils/
+│   │   └── 🛠 index.js               
+│   ├── 📄 .env                       
+│   ├── 📄 .gitignore                 
+│   ├── 📄 package.json                
+│   ├── 📄 package-lock.json         
+│   └── 📄 server.js                
+│
+├── 📂 frontend/                
+│   ├── 📂 .vscode/               
+│   ├── 📂 src/                       
+│   │   ├── 📂 assets/
+│   │   │   ├── 📁 images/            
+│   │   │   └── 🎨 styles.css      
+│   │   ├── 📂 components/
+│   │   │   ├── 📂 widgets/           
+│   │   │   │   ├── 🎠 CarouselWidget.vue   
+│   │   │   │   └── 🔢 PaginationWidget.vue   
+│   │   │   ├── 📄 BookDetailView.vue     
+│   │   │   ├── 📄 BookItem.vue              
+│   │   │   ├── 📄 BookList.vue              
+│   │   │   ├── 📄 Navbar.vue              
+│   │   │   ├── 📄 SectionHeader.vue        
+│   │   │   └── 📄 TheFooter.vue         
+│   │   ├── 📂 router/
+│   │   │   └── 🧭 index.js          
+│   │   ├── 📂 stores/
+│   │   │   └── 🗂 bookStore.js       
+│   │   ├── 📂 views/
+│   │   │   ├── 🏠 HomeView.vue     
+│   │   │   ├── 📚 BooksView.vue      
+│   │   │   ├── 📨 ContactView.vue    
+│   │   │   ├── 🔐 LoginView.vue     
+│   │   │   └── 📝 RegisterView.vue   
+│   │   ├── 🎨 App.vue               
+│   │   └── 🚀 main.js               
+│   ├── 📄 .gitignore               
+│   ├── 📄 index.html              
+│   ├── 📄 package.json            
+│   └── 📄 package-lock.json      
 </pre>
